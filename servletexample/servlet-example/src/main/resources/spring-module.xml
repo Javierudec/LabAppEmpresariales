@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="newsServiceBean" class="es.udc.fi.asi.XMLNewsService">
+		<property name="path" value="news.xml" />
+	</bean>
+	
+	<bean id="dbNewsServiceBean" class="es.udc.fi.asi.DBNewsService">
+	
+	</bean>
+	
+	<bean id="txtNewsServiceBean" class="es.udc.fi.asi.TXTNewsService">
+		<property name="path" value="news.txt" />
+	</bean>
+	
+	<bean id="newsServiceClientBean" class="es.udc.fi.asi.NewsServiceClient">
+		<property name="newsService" ref="txtNewsServiceBean" />
+	</bean>
+</beans>
